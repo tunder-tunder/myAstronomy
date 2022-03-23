@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">myAstronomy</string>
+    <string name="map">Планетарии</string>
+    <string name="news">Новости</string>
+    <string name="books">Учебники</string>
+    <string name="tests">Тесты</string>
+    <string name="acc">Профиль</string>
+</resources>
