@@ -55,7 +55,7 @@ public class LoginActivity extends AppCompatActivity {
 
     public void signIn(String email, String password) {
         // [START sign_in_with_email]
-
+        Intent intent = new Intent(this, MainActivity.class);
         Log.d(TAG, "signInWithEmail" + email);
         Log.d(TAG, "signInWithEmail" + password);
         mAuth.signInWithEmailAndPassword(email, password)
@@ -69,6 +69,7 @@ public class LoginActivity extends AppCompatActivity {
                             String userDisplayName = user.getDisplayName();
                             Toast.makeText(LoginActivity.this, "Hello, " + userDisplayName,
                                     Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
