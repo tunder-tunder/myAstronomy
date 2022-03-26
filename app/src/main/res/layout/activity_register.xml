@@ -4,10 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     android:orientation="vertical"
     android:visibility="visible"
-    tools:context=".LoginActivity"
-    android:background="@color/white">
+    tools:context=".RegisterActivity">
 
     <TextView
         android:id="@+id/textView"
@@ -20,19 +20,61 @@
         android:layout_marginBottom="28dp"
         android:fontFamily="@font/delagothicone"
         android:hyphenationFrequency="none"
-        android:text="@string/join_cosmos"
+        android:text="@string/registration_header"
         android:textColor="@color/black"
         android:textSize="31sp" />
 
-    <View
-        android:id="@+id/MyDivider"
-        android:layout_width="260dp"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/gregister"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginRight="28dp"
+         />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
-        android:background="@color/blue"
-        android:backgroundTint="@color/blue"
-        android:visibility="visible" />
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/MyDivider"
+            android:layout_width="30dp"
+            android:layout_height="2dp"
+            android:layout_gravity="clip_horizontal|center_vertical"
+            android:layout_marginLeft="28dp"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
+            android:foregroundGravity="center_vertical|right"
+            android:visibility="visible" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:fontFamily="@font/delagothicone"
+            android:foregroundGravity="center_vertical|center"
+            android:gravity="center"
+            android:text="@string/or"
+            android:textColor="@color/black"
+            android:textSize="20sp" />
+
+        <View
+            android:id="@+id/myDivider"
+            android:layout_width="30dp"
+            android:layout_height="2dp"
+            android:layout_gravity="clip_horizontal|center_vertical"
+            android:layout_marginRight="28dp"
+            android:layout_weight="1"
+            android:background="@color/blue"
+            android:backgroundTint="@color/blue"
+            android:foregroundGravity="center_vertical|right"
+            android:visibility="visible" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView2"
@@ -40,7 +82,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
         android:layout_marginLeft="28dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="30dp"
         android:layout_marginRight="28dp"
         android:fontFamily="@font/sourcesanspro_semibold"
         android:text="@string/label_email"
@@ -48,7 +90,7 @@
         android:textColor="@color/black" />
 
     <EditText
-        android:id="@+id/username"
+        android:id="@+id/reg_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -79,7 +121,7 @@
         android:textColor="@color/black" />
 
     <EditText
-        android:id="@+id/password"
+        android:id="@+id/reg_pas_one"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal|center_vertical"
@@ -97,6 +139,38 @@
         android:selectAllOnFocus="true"
         android:textAppearance="@style/TextAppearance.AppCompat.Small"
         android:textColor="@color/grey" />
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="28dp"
+        android:fontFamily="@font/sourcesanspro_semibold"
+        android:text="@string/password_again"
+        android:textAllCaps="false"
+        android:textColor="@color/black" />
+
+    <EditText
+        android:id="@+id/reg_pas_two"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="28dp"
+        android:background="@drawable/edittext_border"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:foregroundGravity="center_vertical|center_horizontal"
+        android:gravity="center_vertical"
+        android:hint="@string/enter_password_again"
+        android:imeActionLabel="@string/label_password"
+        android:imeOptions="actionDone"
+        android:inputType="textPassword"
+        android:selectAllOnFocus="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Small"
+        android:textColor="@color/grey" />
 
     <LinearLayout
         android:id="@+id/llBottomContainer2"
@@ -108,21 +182,7 @@
         android:padding="5dp">
 
         <Button
-            android:id="@+id/register_btn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
-            android:layout_marginRight="28dp"
-            android:layout_marginBottom="15dp"
-            android:background="#00FFFFFF"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:letterSpacing="0.01"
-            android:text="@string/register_label"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
-
-        <Button
-            android:id="@+id/login"
+            android:id="@+id/register_account"
             android:layout_width="match_parent"
             android:layout_height="70dp"
             android:layout_gravity="center_horizontal"
@@ -131,9 +191,10 @@
             android:layout_marginBottom="15dp"
             android:enabled="true"
             android:fontFamily="@font/delagothicone"
-            android:text="@string/action_sign_in"
+            android:text="@string/register_btn_label"
             android:textAllCaps="false"
-            android:textSize="10pt"
+            android:textSize="17sp"
+            android:letterSpacing="0.05"
             app:cornerRadius="15dp" />
     </LinearLayout>
 

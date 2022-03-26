@@ -3,7 +3,6 @@ package com.example.myastronomy;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -39,6 +38,15 @@ public class LoginActivity extends AppCompatActivity {
                 signIn(email, password);
             }
         });
+
+        Button register_btn = findViewById(R.id.register_btn);
+        Intent intent_register = new Intent(this, RegisterActivity.class);
+        register_btn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                startActivity(intent_register);
+            }
+        });
+
     }
 
     @Override
@@ -81,4 +89,17 @@ public class LoginActivity extends AppCompatActivity {
         // [END sign_in_with_email]
     }
 
+//TODO: forgot password feature
+//FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+//String newPassword = "SOME-SECURE-PASSWORD";
+//
+//user.updatePassword(newPassword)
+//            .addOnCompleteListener(new OnCompleteListener<Void>() {
+//        @Override
+//        public void onComplete(@NonNull Task<Void> task) {
+//            if (task.isSuccessful()) {
+//                Log.d(TAG, "User password updated.");
+//            }
+//        }
+//    });
 }

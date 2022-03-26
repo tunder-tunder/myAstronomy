@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.MyAstronomy">
         <activity android:name=".LoginActivity"></activity>
+        <activity android:name=".RegisterActivity"></activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login" />
