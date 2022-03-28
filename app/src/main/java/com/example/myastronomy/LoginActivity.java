@@ -2,13 +2,19 @@ package com.example.myastronomy;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.FrameLayout;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -21,11 +27,11 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "TAG";
     FirebaseAuth mAuth;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportFragmentManager().beginTransaction().replace(R.id.frame_container, new GreetingsFragment()).commit();
 
         EditText username = findViewById(R.id.username);
         EditText passw = findViewById(R.id.password);
@@ -49,6 +55,14 @@ public class LoginActivity extends AppCompatActivity {
 
     }
 
+    protected void setFragment(Fragment fragment) {
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        FragmentTransaction fragmentTransaction =
+                fragmentManager.beginTransaction();
+        fragmentTransaction.replace(R.id.fragment_container, fragment);
+        fragmentTransaction.commit();
+    }
+
     @Override
     public void onStart() {
         mAuth = FirebaseAuth.getInstance();
@@ -60,6 +74,7 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
         }
     }
+
 
     public void signIn(String email, String password) {
         // [START sign_in_with_email]

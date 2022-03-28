@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -9,132 +10,152 @@
     tools:context=".LoginActivity"
     android:background="@color/white">
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="28dp"
-        android:fontFamily="@font/delagothicone"
-        android:hyphenationFrequency="none"
-        android:text="@string/join_cosmos"
-        android:textColor="@color/black"
-        android:textSize="31sp" />
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:background="@drawable/frame_drawable">
 
-    <View
-        android:id="@+id/MyDivider"
-        android:layout_width="260dp"
-        android:layout_height="1dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="30dp"
-        android:background="@color/blue"
-        android:backgroundTint="@color/blue"
-        android:visibility="visible" />
+    </FrameLayout>
 
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="100dp"
-        android:layout_marginRight="28dp"
-        android:fontFamily="@font/sourcesanspro_semibold"
-        android:text="@string/label_email"
-        android:textAllCaps="false"
-        android:textColor="@color/black" />
+    <FrameLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
 
-    <EditText
-        android:id="@+id/username"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="28dp"
-        android:background="@drawable/edittext_border"
-        android:fontFamily="@font/sourcesanspro_regular"
-        android:foregroundGravity="center_vertical|center_horizontal"
-        android:gravity="center_vertical"
-        android:hint="@string/prompt_email"
-        android:imeActionLabel="@string/label_email"
-        android:inputType="textEmailAddress"
-        android:selectAllOnFocus="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginRight="28dp"
-        android:fontFamily="@font/sourcesanspro_semibold"
-        android:text="@string/label_password"
-        android:textAllCaps="false"
-        android:textColor="@color/black" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal|center_vertical"
-        android:layout_marginLeft="28dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginRight="28dp"
-        android:background="@drawable/edittext_border"
-        android:fontFamily="@font/sourcesanspro_regular"
-        android:foregroundGravity="center_vertical|center_horizontal"
-        android:gravity="center_vertical"
-        android:hint="@string/prompt_password"
-        android:imeActionLabel="@string/label_password"
-        android:imeOptions="actionDone"
-        android:inputType="textPassword"
-        android:selectAllOnFocus="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Small"
-        android:textColor="@color/grey" />
-
-    <LinearLayout
-        android:id="@+id/llBottomContainer2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="bottom"
-        android:gravity="bottom"
-        android:orientation="vertical"
-        android:padding="5dp">
-
-        <Button
-            android:id="@+id/register_btn"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="28dp"
-            android:layout_marginRight="28dp"
-            android:layout_marginBottom="15dp"
-            android:background="#00FFFFFF"
-            android:fontFamily="@font/sourcesanspro_regular"
-            android:letterSpacing="0.01"
-            android:text="@string/register_label"
-            android:textAllCaps="false"
-            android:textColor="@color/black" />
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <Button
-            android:id="@+id/login"
-            android:layout_width="match_parent"
-            android:layout_height="70dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginLeft="28dp"
-            android:layout_marginRight="28dp"
-            android:layout_marginBottom="15dp"
-            android:enabled="true"
-            android:fontFamily="@font/delagothicone"
-            android:text="@string/action_sign_in"
-            android:textAllCaps="false"
-            android:textSize="10pt"
-            app:cornerRadius="15dp" />
-    </LinearLayout>
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginRight="28dp"
+                android:layout_marginBottom="28dp"
+                android:fontFamily="@font/delagothicone"
+                android:hyphenationFrequency="none"
+                android:text="@string/join_cosmos"
+                android:textColor="@color/black"
+                android:textSize="31sp" />
 
-</LinearLayout>
+            <View
+                android:id="@+id/MyDivider"
+                android:layout_width="260dp"
+                android:layout_height="1dp"
+                android:layout_gravity="center"
+                android:layout_marginTop="30dp"
+                android:background="@color/blue"
+                android:backgroundTint="@color/blue"
+                android:visibility="visible" />
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginRight="28dp"
+                android:fontFamily="@font/sourcesanspro_semibold"
+                android:text="@string/label_email"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="28dp"
+                android:background="@drawable/edittext_border"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                android:gravity="center_vertical"
+                android:hint="@string/prompt_email"
+                android:imeActionLabel="@string/label_email"
+                android:inputType="textEmailAddress"
+                android:selectAllOnFocus="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small" />
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="28dp"
+                android:fontFamily="@font/sourcesanspro_semibold"
+                android:text="@string/label_password"
+                android:textAllCaps="false"
+                android:textColor="@color/black" />
+
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal|center_vertical"
+                android:layout_marginLeft="28dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="28dp"
+                android:background="@drawable/edittext_border"
+                android:fontFamily="@font/sourcesanspro_regular"
+                android:foregroundGravity="center_vertical|center_horizontal"
+                android:gravity="center_vertical"
+                android:hint="@string/prompt_password"
+                android:imeActionLabel="@string/label_password"
+                android:imeOptions="actionDone"
+                android:inputType="textPassword"
+                android:selectAllOnFocus="true"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                android:textColor="@color/grey"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:id="@+id/llBottomContainer2"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
+                android:orientation="vertical"
+                android:padding="5dp">
+
+                <Button
+                    android:id="@+id/register_btn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="28dp"
+                    android:layout_marginBottom="15dp"
+                    android:background="#00FFFFFF"
+                    android:fontFamily="@font/sourcesanspro_regular"
+                    android:letterSpacing="0.01"
+                    android:text="@string/register_label"
+                    android:textAllCaps="false"
+                    android:textColor="@color/black" />
+
+                <Button
+                    android:id="@+id/login"
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginLeft="28dp"
+                    android:layout_marginRight="28dp"
+                    android:layout_marginBottom="15dp"
+                    android:enabled="true"
+                    android:fontFamily="@font/delagothicone"
+                    android:text="@string/action_sign_in"
+                    android:textAllCaps="false"
+                    android:textSize="10pt"
+                    app:cornerRadius="15dp" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </FrameLayout>
+</FrameLayout>
