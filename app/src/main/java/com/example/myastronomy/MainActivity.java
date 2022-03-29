@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        FirebaseAuth.getInstance().signOut();
         BottomNavigationView navigation = findViewById(R.id.bottom_navigation);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new MapFragment()).commit();
+        getSupportFragmentManager().beginTransaction().replace(R.id.container_prof, new ProfileCircleFragment()).commit();
 
 
         navigation.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {

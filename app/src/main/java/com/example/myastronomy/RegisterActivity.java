@@ -34,7 +34,7 @@ public class RegisterActivity extends AppCompatActivity {
     private static final int RC_SIGN_IN = 9001;
 
     private GoogleSignInClient mGoogleSignInClient;
-
+//    Intent intent = new Intent(this, MainActivity.class);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,6 +89,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void createAccount(String email, String password) {
         // [START create_user_with_email]
+        Intent intent = new Intent(this, MainActivity.class);
         Log.d(TAG, "signInWithEmail" + email);
         Log.d(TAG, "signInWithEmail" + password);
         mAuth.createUserWithEmailAndPassword(email, password)
@@ -102,6 +103,7 @@ public class RegisterActivity extends AppCompatActivity {
 //                            updateUI(user);
                             Toast.makeText(RegisterActivity.this, "Authentication complete!",
                                     Toast.LENGTH_SHORT).show();
+                            startActivity(intent);
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
@@ -127,6 +129,7 @@ public class RegisterActivity extends AppCompatActivity {
                 GoogleSignInAccount account = task.getResult(ApiException.class);
                 Log.d(TAG, "firebaseAuthWithGoogle:" + account.getId());
                 firebaseAuthWithGoogle(account.getIdToken());
+
             } catch (ApiException e) {
                 // Google Sign In failed, update UI appropriately
                 Log.w(TAG, "Google sign in failed", e);
@@ -137,6 +140,7 @@ public class RegisterActivity extends AppCompatActivity {
 
     // [START auth_with_google]
     private void firebaseAuthWithGoogle(String idToken) {
+        Intent intent = new Intent(this, MainActivity.class);
         AuthCredential credential = GoogleAuthProvider.getCredential(idToken, null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -151,6 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
                                     Toast.LENGTH_SHORT).show();} else {
                                 Toast.makeText(RegisterActivity.this, "Google sign in done",
                                         Toast.LENGTH_SHORT).show();
+                                startActivity(intent);
                             }
                         } else {
                             // If sign in fails, display a message to the user.
