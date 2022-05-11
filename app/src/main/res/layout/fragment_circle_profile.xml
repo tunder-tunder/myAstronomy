@@ -15,4 +15,4 @@
         android:layout_gravity="end"
         android:layout_margin="15dp"
         tools:src="@tools:sample/avatars" />
-</FrameLayout><!--        android:background="@drawable/corner"-->
+</FrameLayout>

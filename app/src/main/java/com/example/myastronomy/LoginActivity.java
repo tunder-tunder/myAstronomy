@@ -109,15 +109,15 @@ public class LoginActivity extends AppCompatActivity {
     }
 
 //TODO: forgot password feature
-//FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-//String newPassword = "SOME-SECURE-PASSWORD";
+//FirebaseAuth auth = FirebaseAuth.getInstance();
+//    String emailAddress = "user@example.com";
 //
-//user.updatePassword(newPassword)
+//auth.sendPasswordResetEmail(emailAddress)
 //            .addOnCompleteListener(new OnCompleteListener<Void>() {
 //        @Override
 //        public void onComplete(@NonNull Task<Void> task) {
 //            if (task.isSuccessful()) {
-//                Log.d(TAG, "User password updated.");
+//                Log.d(TAG, "Email sent.");
 //            }
 //        }
 //    });

@@ -46,14 +46,13 @@ public class RegisterActivity extends AppCompatActivity {
                 .requestIdToken(getString(R.string.default_web_client_id))
                 .requestEmail()
                 .build();
-
         mGoogleSignInClient = GoogleSignIn.getClient(this, gso);
         // [END config_signin]
 
         // [START initialize_auth]
-        // Initialize Firebase Auth
         mAuth = FirebaseAuth.getInstance();
         // [END initialize_auth]
+
         signInButton = findViewById(R.id.gregister);
         signInButton.setOnClickListener(v -> signIn());
 
@@ -100,7 +99,6 @@ public class RegisterActivity extends AppCompatActivity {
                             // Sign in success, update UI with the signed-in user's information
                             Log.d(TAG, "createUserWithEmail:success");
                             FirebaseUser user = mAuth.getCurrentUser();
-//                            updateUI(user);
                             Toast.makeText(RegisterActivity.this, "Authentication complete!",
                                     Toast.LENGTH_SHORT).show();
                             startActivity(intent);
@@ -109,7 +107,6 @@ public class RegisterActivity extends AppCompatActivity {
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
                             Toast.makeText(RegisterActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
-//                            updateUI(null);
                         }
                     }
                 });
