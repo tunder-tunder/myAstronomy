@@ -28,9 +28,10 @@
         android:layout_marginLeft="13dp"
         android:layout_marginTop="10dp"
         android:layout_marginRight="5dp"
-        android:scrollbars="vertical"
-        android:smoothScrollbar="true"
+        android:background="@color/white"
         android:divider="@android:color/transparent"
         android:dividerHeight="10.0sp"
+        android:scrollbars="vertical"
+        android:smoothScrollbar="true"
         android:verticalScrollbarPosition="right" />
 </LinearLayout>

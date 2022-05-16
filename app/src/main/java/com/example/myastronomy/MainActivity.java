@@ -30,21 +30,26 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
                 Fragment selectedFragment = null;
-
+                ProfileCircleFragment prof = (ProfileCircleFragment) getSupportFragmentManager().findFragmentById(R.id.container_prof);
                 switch (item.getItemId()) {
                     case R.id.nav_map:
+                        prof.setTitleText("Календарь событий");
                         selectedFragment = new CalendarFragment();
                         break;
                     case R.id.nav_news:
+                        prof.setTitleText("Новости");
                         selectedFragment = new NewsFragment();
                         break;
                     case R.id.nav_book:
+                        prof.setTitleText("Книги");
                         selectedFragment = new BooksFragment();
                         break;
                     case R.id.nav_test:
+                        prof.setTitleText("Проверка знаний");
                         selectedFragment = new TestsFragment();
                         break;
                     case R.id.nav_acc:
+                        prof.setTitleText("Профиль");
                         selectedFragment = new ProfileFragment();
                         break;
                 }
@@ -53,6 +58,9 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
+
     }
     @Override
     public void onStart() {
