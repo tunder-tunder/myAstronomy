@@ -23,4 +23,7 @@
     <string name="letsgo">Начать</string>
     <string name="dive_in_astronomy">Погрузитесь в мир астрономии!</string>
     <string name="greeting_desc">Обучайтесь астрономии в удобном мобильном формате.</string>
+    <string name="forward">дальше</string>
+    <string name="back">назад</string>
+    <string name="calendar">Календарь</string>
 </resources>
