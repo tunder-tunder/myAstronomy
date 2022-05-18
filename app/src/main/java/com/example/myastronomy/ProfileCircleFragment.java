@@ -51,12 +51,13 @@ public class ProfileCircleFragment extends Fragment implements View.OnClickListe
             title_prof.setText("Здраствуйте, "+ name);
             String email = user.getEmail();
             Uri photoUrl = user.getPhotoUrl();
+//            Log.d("PHOTO", photoUrl.toString());
             if (photoUrl != null) {Picasso.with(getContext())
                     .load(photoUrl)
                     .error(R.drawable.ic_profile_placeholder)
                     .fit()
                     .transform(transformation)
-                    .into(profBtn);} else {
+                    .into(profBtn);} else if (photoUrl == null){
                 Picasso.with(getContext())
                         .load(R.drawable.ic_profile_placeholder)
                         .placeholder(R.drawable.ic_profile_placeholder)
