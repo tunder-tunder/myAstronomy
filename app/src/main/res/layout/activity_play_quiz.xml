@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/question"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|center_vertical"
+        android:layout_marginLeft="28dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="28dp"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textAllCaps="false"
+        android:textColor="@color/black"
+        android:textSize="18sp" />
+
+    <Button
+        android:id="@+id/answer1"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="15dp"
+        android:enabled="true"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textAllCaps="false"
+        android:textSize="10sp"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/answer2"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="15dp"
+        android:enabled="true"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textAllCaps="false"
+        android:textSize="10sp"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/answer3"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="15dp"
+        android:enabled="true"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textAllCaps="false"
+        android:textSize="10sp"
+        app:cornerRadius="15dp" />
+
+    <Button
+        android:id="@+id/answer4"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="15dp"
+        android:enabled="true"
+        android:fontFamily="@font/sourcesanspro_regular"
+        android:textAllCaps="false"
+        android:textSize="10sp"
+        app:cornerRadius="15dp" />
+</LinearLayout>

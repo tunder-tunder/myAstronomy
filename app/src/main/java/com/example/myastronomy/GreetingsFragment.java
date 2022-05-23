@@ -19,14 +19,14 @@ public class GreetingsFragment extends Fragment implements View.OnClickListener 
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
 
         view = inflater.inflate(R.layout.fragment_greetings, container, false);
-        Button goBtn = view.findViewById(R.id.letsgo_btn);
+        Button goBtn = view.findViewById(R.id.answer1);
         goBtn.setOnClickListener(this);
         return view;
     }
 
     @Override
     public void onClick(View v) {
-        if (v.getId() == R.id.letsgo_btn) hideFragment();
+        if (v.getId() == R.id.answer1) hideFragment();
     }
 
     private void hideFragment() {
