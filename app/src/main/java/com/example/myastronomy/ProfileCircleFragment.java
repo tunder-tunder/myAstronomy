@@ -42,7 +42,7 @@ public class ProfileCircleFragment extends Fragment implements View.OnClickListe
         ImageButton profBtn = view.findViewById(R.id.prof_c);
         profBtn.setOnClickListener(this);
         final int radius = 100;
-        final int margin = 5;
+        final int margin =1 ;
         final Transformation transformation = new RoundedCornersTransformation(radius, margin);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         if (user != null) {

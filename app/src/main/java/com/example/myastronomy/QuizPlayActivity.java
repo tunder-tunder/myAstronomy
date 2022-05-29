@@ -26,7 +26,7 @@ import java.util.Arrays;
 public class QuizPlayActivity extends AppCompatActivity {
     FirebaseFirestore db = FirebaseFirestore.getInstance();
     Button answer1, answer2, answer3, answer4;
-    TextView question;
+    TextView question, title_quiz, question_size;
     int score, index;
     final Quiz[] clone = new Quiz[1];
     String q_answer;
@@ -49,6 +49,8 @@ public class QuizPlayActivity extends AppCompatActivity {
         answer4 = findViewById(R.id.answer4);
 
         question = findViewById(R.id.question);
+        title_quiz = findViewById(R.id.title_quiz);
+        question_size = findViewById(R.id.question_size);
 
 
 
@@ -71,8 +73,9 @@ public class QuizPlayActivity extends AppCompatActivity {
 
                         int size = clone[0].questions.size();
                         questions_len = newQuiz[0].questions.size();
-
+                        title_quiz.setText(clone[0].title);
                         if (step == questions_len + 1) {
+//                            question_size.setText(step + " из " + questions_len);
                             goToResult(document);
                         }
                         updateQuestion(step, document);
@@ -121,6 +124,7 @@ public class QuizPlayActivity extends AppCompatActivity {
                 });
 
 
+
     }
 
 
@@ -144,16 +148,24 @@ public class QuizPlayActivity extends AppCompatActivity {
         answer3.setText(parsedAnswers[2]);
         answer4.setText(parsedAnswers[3]);
 
-//        q_answer = current_quiz.getCorrectAnswers(num);
+        q_answer = current_quiz.getCorrectAnswers(num);
 
         Log.d("SCORE", " " + score);
         Log.d("STEP", " " + step);
+//        Log.d("q_answer", " " + q_answer);
+        int step1 = step + 1;
+        question_size.setText(String.format("%d из %d", step1, current_quiz.questions.size()));
+
 
     }
 
     public int CheckAnswer(Button button){
-        if (button.getText() == q_answer) {
+        Log.d("button.getText()", " " + button.getText());
+        Log.d("q_answer", " " + q_answer);
+
+        if (button.getText().toString().trim().equals(q_answer.toString().trim())) {
             score++;
+            Log.d("SCORE", " " + score);
         }
         return score;}
 
@@ -165,15 +177,11 @@ public class QuizPlayActivity extends AppCompatActivity {
 
         Intent intent = new Intent(QuizPlayActivity.this, ResultTestActivity.class);
         intent.putExtra("titleINTENT", current_quiz.getTitle());
+        intent.putExtra("codeINTENT", current_quiz.getCode());
         intent.putExtra("scoreINTENT", String.valueOf(score));
+        intent.putExtra("lengthINTENT", String.valueOf(current_quiz.questions.size()));
 
-        if (score <= 1){
-            intent.putExtra("resultINTENT", "bad");
-        } else if (score>=2 && score <=3) {
-            intent.putExtra("resultINTENT", "ok");
-        } else {
-            intent.putExtra("resultINTENT", "great");
-        }
+
         startActivity(intent);
     }
 }

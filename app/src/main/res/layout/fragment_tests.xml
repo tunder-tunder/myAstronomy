@@ -7,8 +7,22 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvTests"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:background="@color/white"
         android:padding="10dp" />
+
+    <Button
+        android:id="@+id/addTest"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginLeft="28dp"
+        android:layout_marginRight="28dp"
+        android:layout_marginBottom="15dp"
+        android:enabled="true"
+        android:fontFamily="@font/delagothicone"
+        android:text="@string/add_test"
+        android:textAllCaps="false"
+        android:textSize="10pt" />
 </LinearLayout>

@@ -26,4 +26,10 @@
     <string name="forward">дальше</string>
     <string name="back">назад</string>
     <string name="calendar">Календарь</string>
+    <string name="thisday">В этот день:</string>
+    <string name="again">Пройти тест заново</string>
+    <string name="to_main">На главную</string>
+    <string name="add_test">Добавить тест</string>
+    <string name="create">Создать</string>
+    <string name="const_test">Конструктор тестов</string>
 </resources>

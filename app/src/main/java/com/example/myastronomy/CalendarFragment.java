@@ -61,6 +61,49 @@ public class CalendarFragment extends Fragment {
         String[] split_date = date_now.split(" ");
         date_tv.setText(split_date[0] + " " + dayOfMonth_arr[Integer.parseInt(split_date[1]) - 1]);
 
+        Log.d("TAG", split_date[0]);
+        Log.d("TAG", dayOfMonth_arr[Integer.parseInt(split_date[1]) - 1]);
+        Log.d("TAG", month_arr[Integer.parseInt(split_date[1]) - 1]);
+
+        DocumentReference docRef1 = db.collection("events").document(month_arr[Integer.parseInt(split_date[1]) - 1]);
+        docRef1.get().addOnCompleteListener(new OnCompleteListener<DocumentSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DocumentSnapshot> task) {
+                if (task.isSuccessful()) {
+                    DocumentSnapshot document = task.getResult();
+                    if (document.exists()) {
+                        String key = split_date[0] + " "+ dayOfMonth_arr[Integer.parseInt(split_date[1]) - 1];
+                        String key_1 = " " + key + " ";
+
+                        String nothing = "ничего особенного не происходило";
+                        String output = document.get(key_1).toString();
+
+                        if (output.contains(nothing)){
+                            String[] group = {(String) document.get(key_1)};
+                            ArrayAdapter adapter = new ArrayAdapter<>(getContext(),
+                                    R.layout.list_item, group);
+                            listView.setAdapter(adapter);
+                        } else if(output.equals(null)){
+                            String[] group = {(String) nothing};
+                            ArrayAdapter adapter = new ArrayAdapter<>(getContext(),
+                                    R.layout.list_item, group);
+                            listView.setAdapter(adapter);
+                        }
+                        else {
+                            List<String> group = (List<String>) document.get(key_1);
+                            ArrayAdapter adapter = new ArrayAdapter<>(getContext(),
+                                    R.layout.list_item, group);
+                            listView.setAdapter(adapter);
+                        }
+                    } else {
+                        Log.d(TAG, "No such document");
+                    }
+                } else {
+                    Log.d(TAG, "get failed with ", task.getException());
+                }
+            }
+        });
+
 
         calendarView.setOnDateChangeListener((view1, year, month, dayOfMonth) -> {
             int mMonth = month;
@@ -92,13 +135,13 @@ public class CalendarFragment extends Fragment {
                             } else if(output.equals(null)){
                                 String[] group = {(String) nothing};
                                 ArrayAdapter adapter = new ArrayAdapter<>(getContext(),
-                                        android.R.layout.simple_list_item_1, group);
+                                        R.layout.list_item, group);
                                 listView.setAdapter(adapter);
                             }
                             else {
                                 List<String> group = (List<String>) document.get(key_1);
                                 ArrayAdapter adapter = new ArrayAdapter<>(getContext(),
-                                        android.R.layout.simple_list_item_1, group);
+                                        R.layout.list_item, group);
                                 listView.setAdapter(adapter);
                             }
                         } else {

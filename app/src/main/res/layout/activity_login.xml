@@ -10,17 +10,11 @@
     tools:context=".LoginActivity"
     android:background="@color/white">
 
-    <FrameLayout
-        android:id="@+id/frame_container"
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@drawable/frame_drawable">
-
-    </FrameLayout>
 
     <FrameLayout
-        android:layout_width="fill_parent"
-        android:layout_height="fill_parent">
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="visible">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -47,7 +41,7 @@
                 android:layout_width="260dp"
                 android:layout_height="1dp"
                 android:layout_gravity="center"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="5dp"
                 android:background="@color/blue"
                 android:backgroundTint="@color/blue"
                 android:visibility="visible" />
@@ -158,4 +152,12 @@
         </LinearLayout>
 
     </FrameLayout>
+
+    <FrameLayout
+        android:id="@+id/frame_container"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+    </FrameLayout>
+
 </FrameLayout>

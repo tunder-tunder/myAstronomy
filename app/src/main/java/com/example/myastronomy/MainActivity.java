@@ -41,11 +41,11 @@ public class MainActivity extends AppCompatActivity {
                         selectedFragment = new NewsFragment();
                         break;
                     case R.id.nav_book:
-                        prof.setTitleText("Книги");
+                        prof.setTitleText("Учебники");
                         selectedFragment = new BooksFragment();
                         break;
                     case R.id.nav_test:
-                        prof.setTitleText("Проверка знаний");
+                        prof.setTitleText("Тесты");
                         selectedFragment = new TestsFragment();
                         break;
                     case R.id.nav_acc:

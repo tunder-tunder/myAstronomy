@@ -5,6 +5,7 @@ import android.util.Log;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.UUID;
 
 public class Quiz implements Serializable {
     public final String collection = "tests";
@@ -22,9 +23,10 @@ public class Quiz implements Serializable {
         this.code = code;
         this.title = title;
         this.questions = questions;
-        this.choices =  choices;
-        this.correctAnswer =correctAnswer;
+        this.choices = choices;
+        this.correctAnswer = correctAnswer;
     }
+
     Quiz(Quiz c) {
         this.code = c.code;
         this.title = c.title;
@@ -77,7 +79,7 @@ public class Quiz implements Serializable {
         return choice;
     }
 
-    public String getCorrectAnswer(int a) {
+    public String getCorrectAnswers(int a) {
         return correctAnswer.get(a);
     }
 
@@ -85,4 +87,10 @@ public class Quiz implements Serializable {
     public static Quiz newInstance(Quiz quiz) {
         return new Quiz(quiz);
     }
+
+    public static String generateUniqueCode() {
+        String uniqueID = UUID.randomUUID().toString();
+        return uniqueID.substring(0, 5);
+    }
+
 }

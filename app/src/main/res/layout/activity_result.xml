@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/result_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="28dp"
+
+            android:fontFamily="@font/delagothicone"
+            android:text="TextView"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/result_score"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginTop="30dp"
+            android:layout_marginRight="28dp"
+            android:layout_marginBottom="28dp"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:text="TextView"
+            android:textSize="16sp" />
+
+
+        <ImageView
+            android:id="@+id/img_result"
+            android:layout_width="320dp"
+            android:layout_height="320dp"
+            android:layout_gravity="center"
+            tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom"
+            android:gravity="bottom"
+            android:orientation="vertical">
+
+            <Button
+                android:id="@+id/result_go_again"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:layout_marginBottom="15dp"
+                android:enabled="true"
+                android:fontFamily="@font/delagothicone"
+                android:foregroundGravity="bottom"
+                android:text="@string/again"
+                android:textAllCaps="false"
+                android:textSize="10pt"
+                app:cornerRadius="15dp" />
+
+            <Button
+                android:id="@+id/result_go_back"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:layout_marginBottom="15dp"
+                android:enabled="true"
+                android:fontFamily="@font/delagothicone"
+                android:foregroundGravity="bottom"
+                android:text="@string/to_main"
+                android:textAllCaps="false"
+                android:textSize="10pt"
+                app:cornerRadius="15dp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

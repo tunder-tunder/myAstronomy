@@ -14,6 +14,9 @@
         <activity android:name=".RegisterActivity"></activity>
         <activity android:name=".NewsArticleActivity"></activity>
         <activity android:name=".QuizPlayActivity"></activity>
+        <activity android:name=".ResultTestActivity"></activity>
+        <activity android:name=".ConstructorQuiz"></activity>
+        <activity android:name=".QuizFillForm"></activity>
         <activity
             android:name=".ui.login.LoginActivity"
             android:label="@string/title_activity_login"

@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -33,6 +34,7 @@ import java.util.UUID;
 public class TestsFragment extends Fragment {
     private static final String TAG = "FIREBASE TAG";
     QuizRecyclerViewAdapter adapter;
+
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     ArrayList<String> codes = new ArrayList<String>();
@@ -44,7 +46,17 @@ public class TestsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tests, container,false);
-        Log.d("TEST CODE", "generated code: " + generateUniqueCode());
+
+        Button addTest = view.findViewById(R.id.addTest);
+        addTest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inten_cons = new Intent(getActivity(), ConstructorQuiz.class);
+                startActivity(inten_cons);
+            }
+        });
+
+        Log.d("TEST CODE", "generated code: " + Quiz.generateUniqueCode());
         Intent intent = new Intent(getActivity(), QuizPlayActivity.class);
 
         RecyclerView recyclerView = view.findViewById(R.id.rvTests);
@@ -90,10 +102,7 @@ public class TestsFragment extends Fragment {
         return view;
     }
 
-    public String generateUniqueCode() {
-        String uniqueID = UUID.randomUUID().toString();
-        return uniqueID.substring(0, 5);
-    }
+
 
 
 }
