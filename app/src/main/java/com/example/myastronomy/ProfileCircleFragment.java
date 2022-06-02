@@ -10,6 +10,7 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
@@ -29,7 +30,7 @@ import com.squareup.picasso.Transformation;
 import jp.wasabeef.picasso.transformations.RoundedCornersTransformation;
 
 
-public class ProfileCircleFragment extends Fragment implements View.OnClickListener{
+public class ProfileCircleFragment extends Fragment {
 
     View view;
     FirebaseAuth mAuth;
@@ -40,7 +41,6 @@ public class ProfileCircleFragment extends Fragment implements View.OnClickListe
         view = inflater.inflate(R.layout.fragment_circle_profile, container, false);
         title_prof = view.findViewById(R.id.title_prof);
         ImageButton profBtn = view.findViewById(R.id.prof_c);
-        profBtn.setOnClickListener(this);
         final int radius = 100;
         final int margin =1 ;
         final Transformation transformation = new RoundedCornersTransformation(radius, margin);
@@ -67,26 +67,23 @@ public class ProfileCircleFragment extends Fragment implements View.OnClickListe
             }
 
         }
+
+        profBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                Fragment myFragment = new ProfileFragment();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, myFragment).addToBackStack(null).commit();
+            }
+        });
             return view;
     }
 
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.prof_c) signOut();
-    }
 
-    private void signOut() {
-        mAuth = FirebaseAuth.getInstance();
-        if (mAuth.getCurrentUser() != null) {
-            mAuth.signOut();
-        }
-        Intent intent = new Intent(getActivity(), LoginActivity.class);
-        startActivity(intent);
-    }
 
     public void setTitleText(String title) {
         title_prof.setText(title);
     }
+
 
 
 }

@@ -1,0 +1,228 @@
+@startuml
+class com.example.myastronomy.QuizRecyclerViewAdapter {
+- QuizRecyclerViewAdapter.OnRecyclerViewClickListener listener
+~ ArrayList<String> titles
+~ ArrayList<String> sub_titles
+~ ArrayList<String> codes
+~ Context context
++ void OnRecyclerViewClickListener(QuizRecyclerViewAdapter.OnRecyclerViewClickListener)
++ QuizRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(QuizRecyclerViewAdapter.ViewHolder,int)
++ int getItemCount()
+}
+interface com.example.myastronomy.QuizRecyclerViewAdapter.OnRecyclerViewClickListener {
++ void OnItemClick(int)
+}
+class com.example.myastronomy.QuizRecyclerViewAdapter.ViewHolder {
+~ TextView title
+~ TextView sub_title
+~ TextView code
+}
+class com.example.myastronomy.ProfileCircleFragment {
+~ View view
+~ FirebaseAuth mAuth
+~ TextView title_prof
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void setTitleText(String)
+}
+class com.example.myastronomy.MainActivity {
+- {static} String TAG
+# void onCreate(Bundle)
++ void onStart()
+}
+class com.example.myastronomy.LoginActivity {
+- {static} String TAG
+~ FirebaseAuth mAuth
+# void onCreate(Bundle)
+# void setFragment(Fragment)
++ void onStart()
++ void signIn(String,String)
+}
+class com.example.myastronomy.QuizPlayActivity {
+~ FirebaseFirestore db
+~ Button answer1
+~ TextView question
+~ int score
+~ Quiz[] clone
+~ String q_answer
+~ int step
+~ int questions_len
+# void onCreate(Bundle)
++ void updateQuestion(int,DocumentSnapshot)
++ int CheckAnswer(Button)
++ void goToResult(DocumentSnapshot)
+}
+class com.example.myastronomy.RegisterActivity {
+- {static} String TAG
+~ FirebaseAuth mAuth
+~ SignInButton signInButton
+~ GoogleSignInAccount gaccount
+- {static} int RC_SIGN_IN
+- GoogleSignInClient mGoogleSignInClient
+# void onCreate(Bundle)
++ void onStart()
++ void createAccount(String,String)
++ void onActivityResult(int,int,Intent)
+- void firebaseAuthWithGoogle(String)
+- void signIn()
+}
+class com.example.myastronomy.CalendarFragment {
+~ FirebaseFirestore db
+~ String TAG
+~ String[] month_arr
+~ String[] dayOfMonth_arr
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.myastronomy.BooksFragment {
+- {static} String TAG
+~ BookRecyclerViewAdapter adapter
+~ FirebaseFirestore db
+~ FirebaseStorage storage
+~ ArrayList<String> titles
+~ ArrayList<String> authors
+~ ArrayList<Bitmap> coverImg
+~ File content
++ void getEpubFile(String)
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.myastronomy.BookRecyclerViewAdapter {
+- LayoutInflater mInflater
+~ int[] id
+~ ArrayList<String> titles
+~ ArrayList<String> authors
+~ ArrayList<Bitmap> cover_img
+- OnRecyclerViewClickListener listener
++ void OnRecyclerViewClickListener(OnRecyclerViewClickListener)
++ ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(ViewHolder,int)
++ int getItemCount()
+}
+interface com.example.myastronomy.BookRecyclerViewAdapter.OnRecyclerViewClickListener {
++ void OnItemClick(int)
+}
+class com.example.myastronomy.BookRecyclerViewAdapter.ViewHolder {
+~ TextView bookTitle
+~ TextView bookAuthor
+~ ImageView imageCover
+}
+class com.example.myastronomy.ProfileFragment {
+~ FirebaseAuth mAuth
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+- void signOut()
+}
+class com.example.myastronomy.QuizFillForm {
+# void onCreate(Bundle)
++ void onStart()
+}
+class com.example.myastronomy.GreetingsFragment {
+~ View view
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
++ void hideKeyboard(Context,View)
++ void onClick(View)
+- void hideFragment()
+}
+class com.example.myastronomy.ConstructorQuiz {
+# void onCreate(Bundle)
++ void onStart()
+}
+class com.example.myastronomy.NewsFragment {
+- {static} String TAG
+~ NewsRecyclerViewAdapter adapter
+~ FirebaseFirestore db
+~ ArrayList<String> titles
+~ ArrayList<String> newsCover
+~ ArrayList<String> text
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.myastronomy.TestsFragment {
+- {static} String TAG
+~ QuizRecyclerViewAdapter adapter
+~ FirebaseFirestore db
+~ ArrayList<String> codes
+~ ArrayList<String> titles
+~ ArrayList<String> sub_titles
++ View onCreateView(LayoutInflater,ViewGroup,Bundle)
+}
+class com.example.myastronomy.NewsRecyclerViewAdapter {
+- NewsRecyclerViewAdapter.OnRecyclerViewClickListener listener
+~ ArrayList<String> titles
+~ Context context
+~ ArrayList<String> news_cover
+~ File content
++ void OnRecyclerViewClickListener(NewsRecyclerViewAdapter.OnRecyclerViewClickListener)
++ NewsRecyclerViewAdapter.ViewHolder onCreateViewHolder(ViewGroup,int)
++ void onBindViewHolder(NewsRecyclerViewAdapter.ViewHolder,int)
++ int getItemCount()
+}
+interface com.example.myastronomy.NewsRecyclerViewAdapter.OnRecyclerViewClickListener {
++ void OnItemClick(int)
+}
+class com.example.myastronomy.NewsRecyclerViewAdapter.ViewHolder {
+~ TextView title
+~ ImageView newsCover
+}
+class com.example.myastronomy.ResultTestActivity {
+~ String title
+# void onCreate(Bundle)
++ void onStart()
++ void onClick(View)
++ void passIntent(String,String)
+}
+class com.example.myastronomy.NewsArticleActivity {
+# void onCreate(Bundle)
++ void onStart()
+}
+class com.example.myastronomy.QuizCreateActivity {
+}
+class com.example.myastronomy.Quiz {
++ String collection
++ String title
++ String code
++ ArrayList<String> questions
++ ArrayList<String> choices
++ ArrayList<String> correctAnswer
++ void setCode(String)
++ String getQuestions(int)
++ String getTitle()
++ String getCode()
++ void setQuestions(ArrayList<String>)
++ String setQuestions(int)
++ String toString()
++ String getChoiceN(int)
++ String getCorrectAnswers(int)
++ {static} Quiz newInstance(Quiz)
++ {static} String generateUniqueCode()
+}
+
+
+com.example.myastronomy.Adapter <|-- com.example.myastronomy.QuizRecyclerViewAdapter
+com.example.myastronomy.QuizRecyclerViewAdapter +.. com.example.myastronomy.QuizRecyclerViewAdapter.OnRecyclerViewClickListener
+com.example.myastronomy.QuizRecyclerViewAdapter +.. com.example.myastronomy.QuizRecyclerViewAdapter.ViewHolder
+com.example.myastronomy.ViewHolder <|-- com.example.myastronomy.QuizRecyclerViewAdapter.ViewHolder
+androidx.fragment.app.Fragment <|-- com.example.myastronomy.ProfileCircleFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myastronomy.MainActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myastronomy.LoginActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myastronomy.QuizPlayActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myastronomy.RegisterActivity
+androidx.fragment.app.Fragment <|-- com.example.myastronomy.CalendarFragment
+androidx.fragment.app.Fragment <|-- com.example.myastronomy.BooksFragment
+com.example.myastronomy.Adapter <|-- com.example.myastronomy.BookRecyclerViewAdapter
+com.example.myastronomy.BookRecyclerViewAdapter +.. com.example.myastronomy.BookRecyclerViewAdapter.OnRecyclerViewClickListener
+com.example.myastronomy.BookRecyclerViewAdapter +.. com.example.myastronomy.BookRecyclerViewAdapter.ViewHolder
+com.example.myastronomy.ViewHolder <|-- com.example.myastronomy.BookRecyclerViewAdapter.ViewHolder
+androidx.fragment.app.Fragment <|-- com.example.myastronomy.ProfileFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myastronomy.QuizFillForm
+com.example.myastronomy.OnClickListener <|.. com.example.myastronomy.GreetingsFragment
+androidx.fragment.app.Fragment <|-- com.example.myastronomy.GreetingsFragment
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myastronomy.ConstructorQuiz
+androidx.fragment.app.Fragment <|-- com.example.myastronomy.NewsFragment
+androidx.fragment.app.Fragment <|-- com.example.myastronomy.TestsFragment
+com.example.myastronomy.Adapter <|-- com.example.myastronomy.NewsRecyclerViewAdapter
+com.example.myastronomy.NewsRecyclerViewAdapter +.. com.example.myastronomy.NewsRecyclerViewAdapter.OnRecyclerViewClickListener
+com.example.myastronomy.NewsRecyclerViewAdapter +.. com.example.myastronomy.NewsRecyclerViewAdapter.ViewHolder
+com.example.myastronomy.ViewHolder <|-- com.example.myastronomy.NewsRecyclerViewAdapter.ViewHolder
+com.example.myastronomy.OnClickListener <|.. com.example.myastronomy.ResultTestActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myastronomy.ResultTestActivity
+androidx.appcompat.app.AppCompatActivity <|-- com.example.myastronomy.NewsArticleActivity
+java.io.Serializable <|.. com.example.myastronomy.Quiz
+@enduml

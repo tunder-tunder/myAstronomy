@@ -72,11 +72,19 @@ public class CalendarFragment extends Fragment {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
-                        String key = split_date[0] + " "+ dayOfMonth_arr[Integer.parseInt(split_date[1]) - 1];
+                        String key = "";
+                        if(Integer.parseInt(split_date[0]) < 10) {
+                            key = split_date[0].replace("0", "") + " "+ dayOfMonth_arr[Integer.parseInt(split_date[1]) - 1];
+                        }
+                        else {
+                             key = split_date[0] + " "+ dayOfMonth_arr[Integer.parseInt(split_date[1]) - 1];
+                        }
                         String key_1 = " " + key + " ";
 
                         String nothing = "ничего особенного не происходило";
+                        Log.d("TAG", key + key_1);
                         String output = document.get(key_1).toString();
+
 
                         if (output.contains(nothing)){
                             String[] group = {(String) document.get(key_1)};

@@ -46,7 +46,7 @@ public class QuizPlayActivity extends AppCompatActivity {
         answer1 = findViewById(R.id.answer1);
         answer2 = findViewById(R.id.answer2);
         answer3 = findViewById(R.id.answer3);
-        answer4 = findViewById(R.id.answer4);
+//        answer4 = findViewById(R.id.answer4);
 
         question = findViewById(R.id.question);
         title_quiz = findViewById(R.id.title_quiz);
@@ -110,15 +110,15 @@ public class QuizPlayActivity extends AppCompatActivity {
                             }
                         });
 
-                        answer4.setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
-                                score = CheckAnswer(answer4);
-                                step++;
-                                if (step < size) {
-                                    updateQuestion(step, document);
-                                } else { goToResult(document); }
-                            }
-                        });
+//                        answer4.setOnClickListener(new View.OnClickListener() {
+//                            public void onClick(View v) {
+//                                score = CheckAnswer(answer4);
+//                                step++;
+//                                if (step < size) {
+//                                    updateQuestion(step, document);
+//                                } else { goToResult(document); }
+//                            }
+//                        });
 
                     }
                 });
@@ -146,7 +146,7 @@ public class QuizPlayActivity extends AppCompatActivity {
         answer1.setText(parsedAnswers[0]);
         answer2.setText(parsedAnswers[1]);
         answer3.setText(parsedAnswers[2]);
-        answer4.setText(parsedAnswers[3]);
+//        answer4.setText(parsedAnswers[3]);
 
         q_answer = current_quiz.getCorrectAnswers(num);
 

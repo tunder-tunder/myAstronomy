@@ -2,7 +2,9 @@ package com.example.myastronomy;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
+import android.text.Html;
 import android.util.Log;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -40,8 +42,10 @@ public class NewsArticleActivity extends AppCompatActivity {
         title_n.setText(title);
 
         String text = intent.getStringExtra("text");
-        text_n.setText(text);
+        //format text
 
+
+        text_n.setText(Html.fromHtml(text));
 
         String news_cover = intent.getStringExtra("news_cover");
         Log.d("NEWS COVER INTENT", news_cover + " max height: " + cover_n.getMaxHeight());

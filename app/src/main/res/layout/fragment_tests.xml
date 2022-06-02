@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
     <androidx.recyclerview.widget.RecyclerView
@@ -24,5 +25,6 @@
         android:fontFamily="@font/delagothicone"
         android:text="@string/add_test"
         android:textAllCaps="false"
+        app:cornerRadius="15dp"
         android:textSize="10pt" />
 </LinearLayout>

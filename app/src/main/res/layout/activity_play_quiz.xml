@@ -93,17 +93,17 @@
         android:textSize="18sp"
         app:cornerRadius="15dp" />
 
-    <Button
-        android:id="@+id/answer4"
-        android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="25dp"
-        android:enabled="true"
-        android:fontFamily="@font/sourcesanspro_regular"
-        android:textAllCaps="false"
-        android:textSize="18sp"
-        app:cornerRadius="15dp" />
+<!--    <Button-->
+<!--        android:id="@+id/answer4"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="70dp"-->
+<!--        android:layout_gravity="center_horizontal"-->
+<!--        android:layout_marginLeft="28dp"-->
+<!--        android:layout_marginRight="28dp"-->
+<!--        android:layout_marginBottom="25dp"-->
+<!--        android:enabled="true"-->
+<!--        android:fontFamily="@font/sourcesanspro_regular"-->
+<!--        android:textAllCaps="false"-->
+<!--        android:textSize="18sp"-->
+<!--        app:cornerRadius="15dp" />-->
 </LinearLayout>
