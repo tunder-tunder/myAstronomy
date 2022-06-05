@@ -5,26 +5,78 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
     android:orientation="vertical">
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvTests"
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:background="@color/white"
-        android:padding="10dp" />
+        android:foregroundGravity="center_horizontal"
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/addTest"
+        <EditText
+            android:id="@+id/search"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="5dp"
+            android:layout_weight="10"
+            android:background="@drawable/edittext_border"
+            android:fontFamily="@font/sourcesanspro_regular"
+            android:foregroundGravity="center_vertical|center_horizontal"
+            android:gravity="center_vertical"
+            android:hint="Код теста"
+            android:selectAllOnFocus="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small"
+            android:textSize="12sp" />
+
+        <Button
+            android:id="@+id/search_btn"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="28dp"
+            android:layout_marginRight="28dp"
+            android:layout_weight="17"
+            android:fontFamily="@font/delagothicone"
+            android:text="поиск"
+            android:textAllCaps="false"
+            android:textSize="6pt"
+            app:cornerRadius="5dp" />
+    </LinearLayout>
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="70dp"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginLeft="28dp"
-        android:layout_marginRight="28dp"
-        android:layout_marginBottom="15dp"
-        android:enabled="true"
-        android:fontFamily="@font/delagothicone"
-        android:text="@string/add_test"
-        android:textAllCaps="false"
-        app:cornerRadius="15dp"
-        android:textSize="10pt" />
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rvTests"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:background="@color/white"
+                android:padding="10dp" >
+
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <Button
+                android:id="@+id/addTest"
+                android:layout_width="match_parent"
+                android:layout_height="70dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginLeft="28dp"
+                android:layout_marginRight="28dp"
+                android:layout_marginBottom="15dp"
+                android:enabled="true"
+                android:fontFamily="@font/delagothicone"
+                android:text="@string/add_test"
+                android:textAllCaps="false"
+                android:textSize="10pt"
+                app:cornerRadius="15dp" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
 </LinearLayout>

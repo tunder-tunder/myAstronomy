@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -46,8 +47,50 @@ public class TestsFragment extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_tests, container,false);
-
+        EditText searchEt = view.findViewById(R.id.search);
         Button addTest = view.findViewById(R.id.addTest);
+        Button searchAction = view.findViewById(R.id.search_btn);
+        RecyclerView recyclerView = view.findViewById(R.id.rvTests);
+        Intent intent = new Intent(getActivity(), QuizPlayActivity.class);
+
+        searchAction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String code = searchEt.getText().toString();
+
+                db.collection("tests")
+                        .whereEqualTo("code", code)
+                        .get()
+                        .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
+                            @Override
+                            public void onSuccess(QuerySnapshot documentSnapshots) {
+                                codes.clear();
+                                titles.clear();
+                                sub_titles.clear();
+                                DocumentSnapshot document = documentSnapshots.getDocuments().get(documentSnapshots.size() - 1);
+
+                                codes.add(document.getString("code"));
+                                titles.add(document.getString("title"));
+                                sub_titles.add(document.getString("sub_title"));
+
+                                adapter = new QuizRecyclerViewAdapter(titles, sub_titles, codes);
+                                adapter.OnRecyclerViewClickListener(new QuizRecyclerViewAdapter.OnRecyclerViewClickListener() {
+                                    @Override
+                                    public void OnItemClick(int position) {
+                                        String qi_title = titles.get(position).toString();
+                                        String qi_subtitles = sub_titles.get(position).toString();
+                                        String qi_code = codes.get(position).toString();
+                                        intent.putExtra("title", qi_title);
+                                        intent.putExtra("code", qi_code);
+                                        ((MainActivity) getActivity()).startActivity(intent);
+                                    }
+                                });
+                                recyclerView.setAdapter(adapter);
+                            }
+                        });
+            }
+        });
+
         addTest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,9 +100,9 @@ public class TestsFragment extends Fragment {
         });
 
         Log.d("TEST CODE", "generated code: " + Quiz.generateUniqueCode());
-        Intent intent = new Intent(getActivity(), QuizPlayActivity.class);
 
-        RecyclerView recyclerView = view.findViewById(R.id.rvTests);
+
+
         int numberOfColumns = 1;
         recyclerView.setLayoutManager(new GridLayoutManager(this.getContext(), numberOfColumns));
         db.collection("tests").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {

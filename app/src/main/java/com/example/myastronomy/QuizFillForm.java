@@ -1,5 +1,6 @@
 package com.example.myastronomy;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -9,6 +10,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -39,6 +41,7 @@ public class QuizFillForm extends AppCompatActivity {
     HashMap<String, EditText> editTexts = new HashMap<String, EditText>();
 
 
+    @SuppressLint("ResourceAsColor")
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.activity_fill_form);
@@ -53,6 +56,7 @@ public class QuizFillForm extends AppCompatActivity {
         // creating LayoutParams
         LinearLayout.LayoutParams linLayoutParam = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.MATCH_PARENT);
         // set LinearLayout as a root element of the screen
+        linLayout.setBackgroundResource(R.color.white);
         setContentView(linLayout, linLayoutParam);
 
         LinearLayout.LayoutParams lpView = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -66,7 +70,12 @@ public class QuizFillForm extends AppCompatActivity {
         tv.setLayoutParams(lpView);
 
         Button create = new Button(this);
-
+        create.setText("Добавить тест");
+        create.setBackgroundResource(R.color.blue);
+        create.setLayoutParams(lpView);
+//        create.setTextColor(R.color.white);
+        Typeface typeface1 = ResourcesCompat.getFont(this, R.font.delagothicone);
+        create.setTypeface(typeface1);
         linLayout.addView(tv);
         for (int i = 0; i < length; i++) {
 
@@ -172,6 +181,11 @@ public class QuizFillForm extends AppCompatActivity {
                                 Log.d("TAG", "DocumentSnapshot written with ID: " + documentReference.getId());
                                 Intent intent = new Intent(QuizFillForm.this, MainActivity.class);
                                 startActivity(intent);
+                                int duration = Toast.LENGTH_SHORT;
+                                Toast toast = Toast.makeText(getApplicationContext(),
+                                        "Успешно создан тест '" + title+ "'",
+                                        duration);
+                                toast.show();
                             }
                         })
                         .addOnFailureListener(new OnFailureListener() {
