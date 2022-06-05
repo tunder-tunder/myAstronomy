@@ -40,7 +40,7 @@ public class  ResultTestActivity extends AppCompatActivity implements View.OnCli
 
         String score = intent.getStringExtra("scoreINTENT");
         String length = intent.getStringExtra("lengthINTENT");
-        result_score.setText(String.format("%s из %s", score, length));
+        result_score.setText(String.format("Отвечено правильно на вопросы: %s из %s", score, length));
 
 
         img_result.setImageResource(R.drawable.ic_undraw_to_the_moon_re_q21i);

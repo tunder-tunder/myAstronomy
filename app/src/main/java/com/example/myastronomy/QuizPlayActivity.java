@@ -154,7 +154,7 @@ public class QuizPlayActivity extends AppCompatActivity {
         Log.d("STEP", " " + step);
 //        Log.d("q_answer", " " + q_answer);
         int step1 = step + 1;
-        question_size.setText(String.format("%d из %d", step1, current_quiz.questions.size()));
+        question_size.setText(String.format("Вопрос: %d из %d", step1, current_quiz.questions.size()));
 
 
     }
